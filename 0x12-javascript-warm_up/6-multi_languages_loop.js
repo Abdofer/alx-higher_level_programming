@@ -1,6 +1,6 @@
 #!/usr/bin/node
+let myArray = ['C is fun', 'Python is cool', 'JavaScript is amazing'];
 
-const languages = ['C is fun', 'Python is cool', 'JavaScript is amazing'];
-for (const lan of languages) {
-  console.log(lan);
+for (let i = 0, len = myArray.length; i < len; i++) {
+  console.log(myArray[i]);
 }

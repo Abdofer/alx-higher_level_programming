@@ -1,13 +1,14 @@
 #!/usr/bin/node
-const args = process.argv.slice(2);
-let line = '';
-if (Number(args[0])) {
-  for (let j = 0; j < args[0]; j++) {
-    line += 'X';
-  }
-  for (let i = 0; i < args[0]; i++) {
-    console.log(line);
-  }
-} else {
+let num = process.argv[2];
+
+if (isNaN(num)) {
   console.log('Missing size');
+} else {
+  for (let i = 0; i < num; i++) {
+    let msg = '';
+    for (let j = 0; j < num; j++) {
+      msg = msg + 'X';
+    }
+    console.log(msg);
+  }
 }
