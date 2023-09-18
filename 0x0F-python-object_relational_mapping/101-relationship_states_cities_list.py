@@ -1,10 +1,9 @@
 #!/usr/bin/python3
-"""
-get state
+"""Start link class to table in database
 """
 import sys
-from model_state import Base, State
-
+from relationship_state import Base, State
+from relationship_city import City
 from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
 
@@ -15,10 +14,10 @@ if __name__ == "__main__":
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
-    update_state = session.query(State).filter(
-        State.id == 2).first()
-    if update_state:
-        update_state.name = 'New Mexico'
-        session.commit()
+    result = session.query(State).all()
+    for state in result:
+        print("{}: {}".format(state.id, state.name))
+        for city in state.cities:
+            print("\t{}: {}".format(city.id, city.name))
 
     session.close()
