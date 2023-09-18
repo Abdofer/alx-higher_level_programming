@@ -1,1 +1,1 @@
-# Solutions to tasks on Python - Object-relational mapping
+Python - Object-relational mapping
